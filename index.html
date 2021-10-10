@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://cdn.pixabay.com/photo/2017/12/23/07/05/image-3034792_960_720.png">
+  <title>Clicker Empire Game</title>
+</head>
+<body>
+  <!-- 1ページ目 -->
+  <div class="vh-100 bg-dark d-flex flex-column justify-content-center align-items-center">
+    <div class="d-flex justify-content-center align-items-center flex-wrap col-md-7 col-10">
+      <div id="initialForm" class="col-12 bg-white p-3">
+        <div class="d-flex justify-content-center flex-wrap">
+          <div class="col-12 text-end">
+            <i class="fas fa-cog text-dark rem2p0 cursor-pointer" onclick="dispSettingPage()"></i>
+          </div>
+          <div class="col-12 text-center p-2">
+            <h2 class="pb-3">Please type your name</h2>
+            <form name="userForm" id="user-form" class="form" onsubmit="dispMainGamePage(userForm.key.value); event.preventDefault()">
+              <div class="form-group">
+                <input type="name" name="userName" class="form-control" placeholder="Name" required="required">
+                <div class="d-flex justify-content-center my-3">
+                  <div class="col-6 pe-1">
+                    <button type="submit" class="btn btn-outline-primary col-12" onclick="userForm.key.value='new'">New Game</button>
+                  </div>
+                  <div class="col-6 ps-1">
+                    <button type="submit" class="btn btn-primary col-12" onclick="userForm.key.value='load'">Load Game</button>
+                  </div>
+                  <!-- 複数のsubmitを判定する方法：https://www.koikikukan.com/archives/2018/11/29-000300.php -->
+                  <input name="key" type="hidden" value="">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- 2ページ目の枠 -->
+      <div id="settingPage" class="col-12 bg-white">
+      </div>
+      <div id="mainGamePage" class="col-12 bg-grey">
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</body>
+</html>

@@ -1,0 +1,75 @@
+body {
+    font-family: Futura!important;
+    letter-spacing: 0.02em!important;
+}
+
+p {
+    margin: 0!important;
+}
+
+/* font-size */
+.rem1p2 {
+    font-size: 1.2rem;
+}
+
+.rem1p3 {
+    font-size: 1.3rem;
+}
+
+.rem1p4 {
+    font-size: 1.4rem;
+}
+
+.rem1p5 {
+    font-size: 1.5rem;
+}
+
+.rem1p8 {
+    font-size: 1.8rem;
+}
+
+.rem2p0 {
+    font-size: 2.0rem;
+}
+
+/* background */
+.bg-grey{
+    background-color: rgb(107, 120, 150);
+}
+
+.border-2{
+    border-width:2px !important;
+}
+
+.h-60{
+    height: 60%;
+}
+
+.h-300px{
+    height: 300px;
+}
+
+.text-green{
+    color: rgb(33, 173, 33) !important;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.burger-img{
+    width: 30%;
+}
+
+.burger-img:active {
+    width: 35%;
+}
+
+@media (min-width: 992px) {
+    .burger-img {
+        width: 60%;
+    }
+    .burger-img:active {
+        width: 65%;
+    }
+}
