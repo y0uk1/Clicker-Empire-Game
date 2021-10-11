@@ -58,7 +58,7 @@ class Item {
 
     // 収益率の説明文を作成する
     makeIncomeRateExplanation() {
-        if (this.type === 'investment') return `+${this.incomeRate}% / sec`
+        if (this.type === 'investment') return `+ ${this.incomeRate}% / sec`
         else if (this.type === 'realEstate') return `+￥${this.incomeRate.toLocaleString()} / sec`;
         else if (this.type === 'ability') return `+￥${this.incomeRate.toLocaleString()} / click`
     }
@@ -153,38 +153,40 @@ function settingPage(){
     `
     <div class="col-12 justify-content-center p-3">
         <h2 class="pb-3 text-center">Basic Settings</h2>
-        <div class="form-group row mb-2">
-            <label for="age" class="col-2 col-form-label text-start">Age</label>
-            <div class="col-10">
-                <input type="number" class="form-control form-control-sm text-right" id="age">
+        <form onsubmit="confirmSetting(); event.preventDefault()">
+            <div class="form-group row mb-2">
+                <label for="age" class="col-2 col-form-label text-start">Age</label>
+                <div class="col-10">
+                    <input type="number" class="form-control form-control-sm text-right" min="0" id="age" required="required">
+                </div>
             </div>
-        </div>
-        <div class="form-group row mb-2">
-            <label for="days" class="col-2 col-form-label text-start">Days</label>
-            <div class="col-10">
-                <input type="number" class="form-control form-control-sm text-right" id="days">
+            <div class="form-group row mb-2">
+                <label for="days" class="col-2 col-form-label text-start">Days</label>
+                <div class="col-10">
+                    <input type="number" class="form-control form-control-sm text-right" id="days" min="0" required="required"">
+                </div>
             </div>
-        </div>
-        <div class="form-group row mb-2">
-            <label for="money" class="col-2 col-form-label text-start">Money ￥</label>
-            <div class="col-10">
-                <input type="number" class="form-control form-control-sm text-right" id="money">
+            <div class="form-group row mb-2">
+                <label for="money" class="col-2 col-form-label text-start">Money ￥</label>
+                <div class="col-10">
+                    <input type="number" class="form-control form-control-sm text-right" id="money" min="0" required="required">
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="formRange3" class="col-2 form-label text-start">Game Speed ×<span id="gameSpeedSpan"></span></label>
-            <div class="col-10">
-                <input id="gameSpeed" type="range" class="form-range" min="1" max="100">
+            <div class="form-group row">
+                <label for="formRange3" class="col-2 form-label text-start">Game Speed ×<span id="gameSpeedSpan"></span></label>
+                <div class="col-10">
+                    <input id="gameSpeed" type="range" class="form-range" min="1" max="100">
+                </div>
             </div>
-        </div>
-        <div class="d-flex justify-content-center my-3">
-            <div class="col-6 pe-1">
-                <button class="btn btn-outline-primary col-12 back-btn">Back</button>
+            <div class="d-flex justify-content-center my-3">
+                <div class="col-6 pe-1">
+                    <button class="btn btn-outline-primary col-12 back-btn">Back</button>
+                </div>
+                <div class="col-6 ps-1">
+                    <button type="submit" class="btn btn-primary col-12 next-btn">Confirm</button>
+                </div>
             </div>
-            <div class="col-6 ps-1">
-                <button class="btn btn-primary col-12 next-btn">Confirm</button>
-            </div>
-        </div>
+        </form>
     </div>
     `
 
@@ -212,18 +214,18 @@ function settingPage(){
         displayBlock(config.initialForm);
     })
 
-    confirmNextBtn.addEventListener('click', function(){
-        initSetting.age = parseInt(document.getElementById('age').value);
-        initSetting.days = parseInt(document.getElementById('days').value);
-        initSetting.money = parseInt(document.getElementById('money').value);
-        initSetting.gameSpeed = parseInt(document.getElementById('gameSpeed').value);
-
-        config.settingPage.innerHTML = '';
-        displayNone(config.settingPage);
-        displayBlock(config.initialForm);
-    })
-
     return container;
+}
+
+function confirmSetting() {
+    initSetting.age = parseInt(document.getElementById('age').value);
+    initSetting.days = parseInt(document.getElementById('days').value);
+    initSetting.money = parseInt(document.getElementById('money').value);
+    initSetting.gameSpeed = parseInt(document.getElementById('gameSpeed').value);
+
+    config.settingPage.innerHTML = '';
+    displayNone(config.settingPage);
+    displayBlock(config.initialForm);
 }
 
 function dispMainGamePage(type) {
@@ -414,7 +416,7 @@ function saveUserData(userAccount) {
 function itemList(userAccount) {
     // itemのリスト作成
     let container = document.createElement('div');
-    container.classList.add('bg-dark', 'p-2', 'overflow-auto', 'text-white', 'h-300px');
+    container.classList.add('bg-dark', 'p-2', 'overflow-auto', 'text-white', 'h-330px');
 
     let keyArray = Object.keys(userAccount.items);
     keyArray.forEach(function (element) {
@@ -459,7 +461,7 @@ function itemList(userAccount) {
 function itemPage(userAccount, itemName){
     // itemの購入ページ作成
     let container = document.createElement('div');
-    container.classList.add('bg-dark', 'p-2', 'overflow-auto', 'text-white', 'h-300px');
+    container.classList.add('bg-dark', 'p-2', 'overflow-auto', 'text-white', 'h-330px');
 
     container.innerHTML =
     `
@@ -472,7 +474,7 @@ function itemPage(userAccount, itemName){
             <p>${userAccount.items[itemName].makeExplanation()}</p>
         </div>
         <div class="col-3 text-center">
-            <img src="${userAccount.items[itemName].imgURL}" class="img-fluid">
+            <img src="${userAccount.items[itemName].imgURL}" class="img-fluid p-2">
         </div>
 
         <div class="col-12 text-start mt-3 mb-2">
