@@ -4,6 +4,8 @@ This is a simple game to earn money to become an empire.
 
 All you have to do is earning a lot of money.
 
+https://y0uk1.github.io/Clicker-Empire-Game/
+
 # DEMO
 
 <img src='img/demo.png' width='60%'>
