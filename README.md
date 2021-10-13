@@ -8,8 +8,8 @@ https://y0uk1.github.io/Clicker-Empire-Game/
 
 # DEMO
 
-<img src='img/demo.png' width='60%'>
-<img src='img/demo2.png' width='60%'>
+<img src='img/demo.png' width='100%'>
+<img src='img/demo2.png' width='100%'>
 
 
 # Features
@@ -23,15 +23,15 @@ https://y0uk1.github.io/Clicker-Empire-Game/
 
 0. If you want to change the initial settings, please click the upper right cog and change settings.
 
-    <img src='img/setting.png' width='50%'>
+    <img src='img/setting.png' width='100%'>
 
 1. Please type you name and click "New Game".
 
-    <img src='img/home.png' width='50%'>
+    <img src='img/home.png' width='100%'>
 
 2. You can earn money by clicking a hamberger or buying stocks or real estates.
 
-    <img src='img/demo.png' width='50%'>
+    <img src='img/demo.png' width='100%'>
 
 3. You can save your data. Your data is saved in your local strage.
 
