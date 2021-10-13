@@ -80,9 +80,6 @@ class UserAccount {
         if (isNaN(itemCount)) {
             alert("Wrong input!");
             return false;
-        } else if (itemCount <= 0){
-            alert('Please buy more than one!');
-            return false;
         } else {
             if (this.money - this.items[itemName].price * itemCount >= 0) {
                 if (this.items[itemName].purchaseCount + itemCount <= this.items[itemName].maxPurchases) {
@@ -479,7 +476,7 @@ function itemPage(userAccount, itemName){
 
         <div class="col-12 text-start mt-3 mb-2">
             <label for="exampleFormControlInput1">How Many would you like to purchase? (Max: ${userAccount.getAvailablePurchase(itemName)})</label>
-            <input type="number" class="form-control form-control-sm text-right" id="buy-item" value="0">
+            <input type="number" class="form-control form-control-sm text-right" id="buy-item" min="0" value="0">
         </div>
 
         <div class="col-12 text-end my-2">
