@@ -1,6 +1,6 @@
 # Clicker Empire Game
 
-This is a simple game to earn money to become an empire.
+This is a simple game to earn money to build an empire.
 
 All you have to do is earning a lot of money.
 
